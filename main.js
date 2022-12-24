@@ -5,16 +5,24 @@ mobilemenu = document.querySelector('.mobile-menu');
 carritoicon = document.querySelector('.navbar-shopping-cart');
 aside = document.querySelector('.product-detail');
 cardsContainer = document.querySelector('.cards-container');
+productDetails = document.querySelector('.real-product-detail');
+closeButton = document.querySelector('.product-detail-close img')
 
 
 email.addEventListener('click', displayDesktopMenu);
 icon.addEventListener('click', displayMobileMenu);
 carritoicon.addEventListener('click', displayAside);
+cardsContainer.addEventListener('click', displayProductDetail);
+closeButton.addEventListener('click', closeProductDetail);
 
 function displayDesktopMenu(){
     const isAsideClosed = aside.classList.contains('inactive');
     if (!isAsideClosed) {
         aside.classList.add('inactive');
+    }
+    const isProductDetailClosed = productDetails.classList.contains('inactive');
+    if (!isProductDetailClosed){
+        productDetails.classList.add('inactive');
     }
     deskmenu.classList.toggle('inactive');
 }
@@ -23,6 +31,10 @@ function displayMobileMenu(){
     if (!isAsideClosed) {
         aside.classList.add('inactive');
     }
+    const isProductDetailClosed = productDetails.classList.contains('inactive');
+    if (!isProductDetailClosed){
+        productDetails.classList.add('inactive');
+    }
     mobilemenu.classList.toggle('inactive');
 }
 function displayAside(){
@@ -30,7 +42,21 @@ function displayAside(){
     if (!isMobMenuClosed) {
         mobilemenu.classList.add('inactive');
     }
+    const isProductDetailClosed = productDetails.classList.contains('inactive');
+    if (!isProductDetailClosed){
+        productDetails.classList.add('inactive');
+    }
     aside.classList.toggle('inactive');
+}
+function displayProductDetail(){
+    const isAsideClosed = aside.classList.contains('inactive');
+    if (!isAsideClosed) {
+        aside.classList.add('inactive');
+    }
+    productDetails.classList.toggle('inactive');
+}
+function closeProductDetail(){
+    productDetails.classList.add('inactive');
 }
 
 const productList = [];
